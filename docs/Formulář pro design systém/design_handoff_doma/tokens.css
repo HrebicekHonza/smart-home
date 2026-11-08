@@ -1,0 +1,64 @@
+/* Doma – designové tokeny (CSS custom properties). Zdroj pravdy pro Tailwind preset. */
+:root {
+  /* plochy */
+  --color-background: #17191C;
+  --color-surface-sunken: #1D2024;   /* vstupy, grafy, stopy přepínačů, segmented track */
+  --color-surface: #24272C;          /* karty, panely */
+  --color-surface-hover: #2A2E34;    /* hover karet/dlaždic */
+  --color-surface-raised: #30353C;   /* tlačítka, vnořené prvky, ikonové boxy */
+  --color-surface-raised-hover: #3A4048;
+  --color-border: #454C56;           /* oddělení, chipy rozsahu */
+  --color-border-subtle: #30353C;    /* oddělovače řádků uvnitř karet */
+  --color-border-strong: #66707C;    /* obrys ovládacích prvků (3:1 vůči surface) */
+
+  /* text */
+  --color-text-primary: #F4F6F8;     /* 13,9:1 na surface */
+  --color-text-secondary: #ADB6C2;   /* 7,9:1 */
+  --color-text-tertiary: #8E97A3;    /* 5,3:1 – metadata, osy grafů */
+  --color-text-disabled: #66707C;
+
+  /* akcent */
+  --color-accent: #8CC8FF;
+  --color-accent-hover: #A6D4FF;
+  --color-on-accent: #101820;        /* 10,8:1 na accent */
+  --color-accent-muted: #1F3447;     /* vybraný stav, aktivní nav, teplé segmenty rozvrhu */
+  --color-accent-muted-border: #2E4C66;
+
+  /* stavy – vždy s ikonou a textem */
+  --color-success: #86D5A6;  --color-success-bg: #1E3328;  --color-success-text: #C9EBD5;
+  --color-warning: #F0C674;  --color-warning-bg: #3A3120;  --color-warning-text: #F6DFAE;
+  --color-danger:  #FF9A94;  --color-danger-bg:  #3D2324;  --color-danger-text:  #FFD0CD;
+
+  /* sklo – jen nad fotografií */
+  --glass-bg: rgba(23, 25, 28, 0.80);
+  --glass-bg-strong: rgba(23, 25, 28, 0.84);
+  --glass-blur: 12px;
+  --scrim: rgba(10, 12, 14, 0.72);
+
+  /* zaoblení */
+  --radius-xs: 6px;    /* malé štítky (DEMO, „Nyní“) */
+  --radius-sm: 10px;   /* čipy, segmenty rozvrhu, volby platnosti */
+  --radius-md: 12px;   /* tlačítka, ikonové boxy, stat boxy */
+  --radius-lg: 14px;   /* hlášení, segmented control, řádky místností */
+  --radius-xl: 16px;   /* karty, dlaždice, stepper tlačítka */
+  --radius-2xl: 20px;  /* dialog / bottom sheet */
+
+  /* typografie */
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* pohyb */
+  --duration-fast: 120ms;
+  --duration-base: 150ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+
+  --focus-ring: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-accent);
+  --shadow-toast: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-fast: 0ms; --duration-base: 0ms; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+.tabular { font-variant-numeric: tabular-nums; }

@@ -13,7 +13,8 @@ export default ts.config(
 			'**/.svelte-kit/',
 			'**/build/',
 			'**/test-results/',
-			'**/playwright-report/'
+			'**/playwright-report/',
+			'docs/'
 		]
 	},
 	js.configs.recommended,
@@ -34,7 +35,9 @@ export default ts.config(
 		rules: {
 			'no-undef': 'off',
 			'@typescript-eslint/consistent-type-imports': 'error',
-			'@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }]
+			'@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+			'@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
+			'@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }]
 		}
 	},
 	{

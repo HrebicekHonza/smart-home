@@ -10,7 +10,9 @@ export default defineConfig({
 	reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
 	use: {
 		baseURL: `http://localhost:${PORT}${BASE_PATH}/`,
-		trace: 'retain-on-failure'
+		trace: 'retain-on-failure',
+		locale: 'cs-CZ',
+		timezoneId: 'Europe/Prague'
 	},
 	projects: [
 		{

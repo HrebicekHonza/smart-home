@@ -1,15 +1,18 @@
-import FlaskConical from '@lucide/svelte/icons/flask-conical';
+import ChartLine from '@lucide/svelte/icons/chart-line';
+import Flame from '@lucide/svelte/icons/flame';
 import House from '@lucide/svelte/icons/house';
-import type { RouteId } from '$app/types';
+import LayoutGrid from '@lucide/svelte/icons/layout-grid';
 import type { Component } from 'svelte';
 
 export interface NavigationItem {
-	readonly route: RouteId;
+	readonly route: '/' | '/mistnosti/[id]' | '/vytapeni' | '/simulator';
 	readonly label: string;
 	readonly icon: Component;
 }
 
 export const navigationItems: readonly NavigationItem[] = [
 	{ route: '/', label: 'Přehled', icon: House },
-	{ route: '/simulator', label: 'Simulátor', icon: FlaskConical }
+	{ route: '/mistnosti/[id]', label: 'Místnosti', icon: LayoutGrid },
+	{ route: '/vytapeni', label: 'Vytápění', icon: Flame },
+	{ route: '/simulator', label: 'Simulátor', icon: ChartLine }
 ];

@@ -2,7 +2,7 @@
 
 Personal smart-home application, starting with room heating. Runs locally at home; a landscape tablet is the primary device, phone and desktop stay fully usable. The UI is Czech, the repository is English.
 
-> **Status:** project foundation. The app shell, design tokens, domain core and CI/CD are in place. Rooms, the demo adapter and the simulation are not implemented yet; see [docs/architecture.md](docs/architecture.md#roadmap).
+> **Status:** first increment. Overview and room detail follow the approved design and run on a clearly labelled demo adapter (no hardware, account or cloud). Heating and Simulator screens are placeholders; see [docs/architecture.md](docs/architecture.md#roadmap).
 
 ## Requirements
 
@@ -24,6 +24,10 @@ Personal smart-home application, starting with room heating. Runs locally at hom
 | `pnpm dropbox:ignore` | Exclude generated folders from Dropbox sync   |
 
 First Playwright run needs a browser: `pnpm --filter @doma/web exec playwright install chromium`.
+
+## Demo scenarios
+
+Append `?demo=offline` (home server unreachable) or `?demo=loading` (data never arrives) to any URL to see those states. The first target change in each room fails on purpose so the failure and retry path is visible.
 
 ## Hosting under a sub-path
 

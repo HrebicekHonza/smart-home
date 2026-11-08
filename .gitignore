@@ -17,3 +17,5 @@ vite.config.*.timestamp-*
 Thumbs.db
 desktop.ini
 *.log
+
+/docs/*.zip

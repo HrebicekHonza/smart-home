@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#17191C;color:#F4F6F8;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#8CC8FF}a:hover{color:#B8DDFF}
+*{box-sizing:border-box}
+button{font-family:inherit}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+
+<div style="max-width:1240px;margin:0 auto;padding:48px 32px 96px;display:flex;flex-direction:column;gap:72px">
+
+<header style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid #454C56;padding-bottom:32px">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:36px;height:36px;border-radius:10px;background:#8CC8FF;display:flex;align-items:center;justify-content:center;color:#101820">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      </div>
+      <span style="font-size:22px;font-weight:600;letter-spacing:-0.01em">Doma</span>
+      <span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2;border:1px solid #454C56;border-radius:6px;padding:3px 7px;white-space:nowrap;flex:none">pracovní název</span>
+    </div>
+    <h1 style="margin:0;font-size:40px;font-weight:600;letter-spacing:-0.02em;line-height:1.1">Vizuální základ</h1>
+    <p style="margin:0;max-width:620px;color:#ADB6C2;font-size:16px;line-height:1.55;text-wrap:pretty">Barvy, typografie a základní komponenty k odsouhlasení. Grafitové plochy nesou obsah, ledová modř označuje interakci a aktivní stav. Stavy se vždy čtou z ikony a textu, barva je jen posiluje.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:6px;font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3;text-align:right">
+    <span>v0.1 · 8. 11. 2026</span>
+    <span>cíl: SvelteKit · Tailwind · Lucide</span>
+    <span>náhled: HTML/React, jen demonstrace</span>
+  </div>
+</header>
+
+<!-- 01 BARVY -->
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">01</span><h2 style="margin:0;font-size:24px;font-weight:600">Barvy</h2></div>
+  <p style="margin:0;max-width:720px;color:#ADB6C2;font-size:15px;line-height:1.55">Výchozí tokeny ze zadání ponechávám. Doplňuji text-tertiary pro metadata, border-strong pro ovládací prvky (kontrast 3 : 1 vůči ploše), surface-sunken pro vstupy a grafy a tlumenou variantu akcentu pro vybrané stavy.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px">
+    <div style="border-radius:14px;overflow:hidden;border:1px solid #454C56"><div style="height:72px;background:#17191C"></div><div style="padding:12px 14px;background:#24272C;display:flex;flex-direction:column;gap:3px"><span style="font-size:14px;font-weight:500">background</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#17191C</span><span style="font-size:12px;color:#8E97A3">Pozadí aplikace</span></div></div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid #454C56"><div style="height:72px;background:#1D2024"></div><div style="padding:12px 14px;background:#24272C;display:flex;flex-direction:column;gap:3px"><span style="font-size:14px;font-weight:500">surface-sunken <span style="color:#8CC8FF;font-size:11px">nové</span></span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#1D2024</span><span style="font-size:12px;color:#8E97A3">Vstupy, grafy, stopy</span></div></div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid #454C56"><div style="height:72px;background:#24272C"></div><div style="padding:12px 14px;background:#24272C;display:flex;flex-direction:column;gap:3px;border-top:1px solid #454C56"><span style="font-size:14px;font-weight:500">surface</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#24272C</span><span style="font-size:12px;color:#8E97A3">Karty, panely</span></div></div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid #454C56"><div style="height:72px;background:#30353C"></div><div style="padding:12px 14px;background:#24272C;display:flex;flex-direction:column;gap:3px"><span style="font-size:14px;font-weight:500">surface-raised</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#30353C</span><span style="font-size:12px;color:#8E97A3">Tlačítka, vnořené prvky</span></div></div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid #454C56"><div style="height:72px;background:#24272C;display:flex;align-items:center;justify-content:center;gap:10px"><span style="width:56px;height:28px;border-radius:8px;border:1px solid #454C56"></span><span style="width:56px;height:28px;border-radius:8px;border:1px solid #66707C"></span></div><div style="padding:12px 14px;background:#24272C;display:flex;flex-direction:column;gap:3px"><span style="font-size:14px;font-weight:500">border · border-strong</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#454C56 · #66707C</span><span style="font-size:12px;color:#8E97A3">Oddělení · ovládací prvky</span></div></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px">
+    <div style="border-radius:14px;background:#24272C;border:1px solid #454C56;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:500;color:#F4F6F8">Aa</span><span style="font-size:14px;font-weight:500">text-primary</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#F4F6F8 · 13,9 : 1</span></div>
+    <div style="border-radius:14px;background:#24272C;border:1px solid #454C56;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:500;color:#ADB6C2">Aa</span><span style="font-size:14px;font-weight:500">text-secondary</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#ADB6C2 · 7,9 : 1</span></div>
+    <div style="border-radius:14px;background:#24272C;border:1px solid #454C56;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:500;color:#8E97A3">Aa</span><span style="font-size:14px;font-weight:500">text-tertiary <span style="color:#8CC8FF;font-size:11px">nové</span></span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#8E97A3 · 5,3 : 1</span></div>
+    <div style="border-radius:14px;background:#8CC8FF;padding:16px;display:flex;flex-direction:column;gap:6px;color:#101820"><span style="font-size:28px;font-weight:500">Aa</span><span style="font-size:14px;font-weight:600">accent / on-accent</span><span style="font-family:'Geist Mono',monospace;font-size:12px">#8CC8FF · #101820 · 10,8 : 1</span></div>
+    <div style="border-radius:14px;background:#1F3447;border:1px solid #2E4C66;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:500;color:#8CC8FF">Aa</span><span style="font-size:14px;font-weight:500">accent-muted <span style="color:#8CC8FF;font-size:11px">nové</span></span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#ADB6C2">#1F3447 · vybraný stav</span></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+    <div style="border-radius:14px;background:#1E3328;padding:16px;display:flex;gap:12px;align-items:flex-start;color:#86D5A6">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+      <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">success</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#C9EBD5">#86D5A6 na #1E3328</span><span style="font-size:13px;color:#F4F6F8">Příkaz potvrzen, cíl dosažen</span></div>
+    </div>
+    <div style="border-radius:14px;background:#3A3120;padding:16px;display:flex;gap:12px;align-items:flex-start;color:#F0C674">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+      <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">warning</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#F6DFAE">#F0C674 na #3A3120</span><span style="font-size:13px;color:#F4F6F8">Otevřené okno, zastaralé měření</span></div>
+    </div>
+    <div style="border-radius:14px;background:#3D2324;padding:16px;display:flex;gap:12px;align-items:flex-start;color:#FF9A94">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+      <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">danger</span><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#FFD0CD">#FF9A94 na #3D2324</span><span style="font-size:13px;color:#F4F6F8">Odpojení, neúspěšný příkaz</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 TYPOGRAFIE -->
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">02</span><h2 style="margin:0;font-size:24px;font-weight:600">Typografie</h2></div>
+  <p style="margin:0;max-width:720px;color:#ADB6C2;font-size:15px;line-height:1.55">Manrope 400 / 500 / 600. Hodnoty mají váhu 500 a <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#F4F6F8">font-variant-numeric: tabular-nums</span>, aby se při změně neposouvaly. Jednotka °C je o stupeň menší a v sekundární barvě. Geist Mono jen pro technické údaje: ID zařízení, časové značky v logu, parametry simulátoru.</p>
+
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+    <div style="background:#24272C;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:20px;min-width:0">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">value-xl · 72/1 · 500</span><span style="font-size:72px;line-height:1;font-weight:500;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">21,4<span style="font-size:32px;color:#ADB6C2;font-weight:400;margin-left:4px">°C</span></span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">value-l · 44/1 · 500</span><span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">19,8<span style="font-size:22px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">value-m · 28/1 · 500</span><span style="font-size:28px;line-height:1;font-weight:500;font-variant-numeric:tabular-nums">48 <span style="font-size:16px;color:#ADB6C2;font-weight:400">%</span>  ·  06:30</span></div>
+    </div>
+    <div style="background:#24272C;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px;min-width:0">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">title · 28/1,2 · 600</span><span style="font-size:28px;font-weight:600;letter-spacing:-0.01em">Ložnice</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">heading · 18/1,3 · 600</span><span style="font-size:18px;font-weight:600">Poslední události</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">body · 16/1,5 · 400</span><span style="font-size:16px;line-height:1.5">Hlavice v obýváku přešla na noční teplotu podle rozvrhu.</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">label · 14/1,3 · 500</span><span style="font-size:14px;font-weight:500">Požadovaná teplota · Do 22:00</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">caption · 13/1,4 · 400</span><span style="font-size:13px;color:#ADB6C2">Naměřeno před 2 min · Senzor u okna</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">mono · Geist Mono 13 · 400</span><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#ADB6C2">trv-loznice-01 · 08.11. 06:30:12 · Kp 0,8</span></div>
+    </div>
+  </div>
+  <div style="font-size:15px;color:#ADB6C2;background:#1D2024;border-radius:12px;padding:14px 18px;font-family:Manrope">Diakritika: Příliš žluťoučký kůň úpěl ďábelské ódy · Kuchyně · Toaleta · Chodba · Ložnice</div>
+</section>
+
+<!-- 03 KOMPONENTY: MÍSTNOSTI -->
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">03</span><h2 style="margin:0;font-size:24px;font-weight:600">Dlaždice místnosti</h2></div>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#F0C674;border:1px dashed #F0C674;border-radius:6px;padding:4px 8px">DEMO DATA</span>
+  </div>
+  <p style="margin:0;max-width:720px;color:#ADB6C2;font-size:15px;line-height:1.55">Naměřená teplota je hlavní hodnota. Požadovaná teplota stojí vedle se slovem „Cíl“, aby nešlo o záměnu. Dlaždice je celá jedno tlačítko, které otevře detail místnosti.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px">
+
+    <button type="button" onClick="{{ selectRoom.obyvak }}" style="all:unset;cursor:pointer;background:{{ tiles.obyvak.bg }};border:1px solid {{ tiles.obyvak.border }};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:18px;min-height:188px;transition:background 120ms,border-color 120ms" style-hover="background:#2A2E34" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:16px;font-weight:600">Obývák</span><span style="display:flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:#8CC8FF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>Topí</span></div>
+      <span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">20,6<span style="font-size:20px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums"><span>Cíl <span style="color:#F4F6F8;font-weight:500">22,0 °C</span></span><span>48 %</span></div>
+    </button>
+
+    <button type="button" onClick="{{ selectRoom.loznice }}" style="all:unset;cursor:pointer;background:{{ tiles.loznice.bg }};border:1px solid {{ tiles.loznice.border }};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:18px;min-height:188px" style-hover="background:#2A2E34" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:16px;font-weight:600">Ložnice</span><span style="display:flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:#ADB6C2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>V cíli</span></div>
+      <span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">19,1<span style="font-size:20px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums"><span>Cíl <span style="color:#F4F6F8;font-weight:500">19,0 °C</span></span><span>52 %</span></div>
+    </button>
+
+    <button type="button" onClick="{{ selectRoom.koupelna }}" style="all:unset;cursor:pointer;background:{{ tiles.koupelna.bg }};border:1px solid {{ tiles.koupelna.border }};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-height:188px" style-hover="background:#2A2E34" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:16px;font-weight:600">Koupelna</span><span style="display:flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:#ADB6C2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>Pozastaveno</span></div>
+      <span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">21,9<span style="font-size:20px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span>
+      <div style="display:flex;align-items:center;gap:8px;background:#3A3120;color:#F0C674;border-radius:10px;padding:8px 10px;font-size:13px;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"></path><path d="M12 4v16"></path></svg><span style="color:#F4F6F8">Okno otevřené 12 min</span></div>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums"><span>Cíl <span style="color:#F4F6F8;font-weight:500">23,0 °C</span></span><span>Světlo zap.</span></div>
+    </button>
+
+    <button type="button" onClick="{{ selectRoom.chodba }}" style="all:unset;cursor:pointer;background:{{ tiles.chodba.bg }};border:1px solid {{ tiles.chodba.border }};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-height:188px" style-hover="background:#2A2E34" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:16px;font-weight:600">Chodba</span><span style="display:flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:#F0C674"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Zastaralé</span></div>
+      <span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;color:#8E97A3">18,4<span style="font-size:20px;font-weight:400;margin-left:3px">°C</span></span>
+      <span style="font-size:13px;color:#F4F6F8">Poslední měření před 47 min</span>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums"><span>Cíl <span style="color:#F4F6F8;font-weight:500">18,0 °C</span></span><span>—</span></div>
+    </button>
+
+    <button type="button" onClick="{{ selectRoom.toaleta }}" style="all:unset;cursor:pointer;background:{{ tiles.toaleta.bg }};border:1px solid {{ tiles.toaleta.border }};border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-height:188px" style-hover="background:#2A2E34" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:16px;font-weight:600">Toaleta</span><span style="display:flex;align-items:center;gap:5px;font-size:13px;font-weight:500;color:#FF9A94"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643"></path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg>Odpojeno</span></div>
+      <span style="font-size:44px;line-height:1;font-weight:500;color:#8E97A3">—</span>
+      <span style="font-size:13px;color:#F4F6F8">Hlavice neodpovídá od 05:12</span>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;font-size:13px;color:#ADB6C2"><span>Cíl <span style="color:#F4F6F8;font-weight:500">20,0 °C</span></span><span>—</span></div>
+    </button>
+
+    <div aria-busy="true" aria-label="Načítání místnosti" style="background:#24272C;border:1px solid #24272C;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:18px;min-height:188px">
+      <div style="display:flex;justify-content:space-between"><span style="width:84px;height:16px;border-radius:6px;background:#30353C;animation:pulse 1.4s ease-in-out infinite"></span><span style="width:52px;height:16px;border-radius:6px;background:#30353C;animation:pulse 1.4s ease-in-out infinite"></span></div>
+      <span style="width:120px;height:44px;border-radius:10px;background:#30353C;animation:pulse 1.4s ease-in-out infinite"></span>
+      <div style="margin-top:auto;display:flex;justify-content:space-between"><span style="width:90px;height:13px;border-radius:5px;background:#30353C"></span><span style="width:36px;height:13px;border-radius:5px;background:#30353C"></span></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+    <sc-if value="{{ showPhoto }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;border-radius:16px;overflow:hidden;min-height:260px;background:repeating-linear-gradient(135deg,#2B2F35 0 10px,#272A30 10px 20px);display:flex;flex-direction:column;justify-content:space-between;padding:16px">
+      <span style="position:absolute;right:16px;bottom:16px;font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">fotografie místnosti</span>
+      <div style="position:relative;display:flex;gap:8px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:6px;background:rgba(23,25,28,0.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:10px;padding:7px 11px;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ADB6C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"></path><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"></path></svg>48 %</span>
+        <span style="display:flex;align-items:center;gap:6px;background:rgba(23,25,28,0.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:10px;padding:7px 11px;font-size:13px;font-weight:500"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ADB6C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"></path><path d="M12 4v16"></path></svg>Okno zavřené</span>
+      </div>
+      <div style="position:relative;align-self:flex-start;background:rgba(23,25,28,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:15px;font-weight:600">Obývák</span>
+        <span style="font-size:44px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">20,6<span style="font-size:20px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span>
+        <span style="font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums">Cíl <span style="color:#F4F6F8;font-weight:500">22,0 °C</span> · Topí</span>
+      </div>
+    </div>
+    </sc-if>
+    <div style="border-radius:16px;min-height:260px;background:#24272C;display:flex;flex-direction:column;justify-content:space-between;padding:20px;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:600">Obývák</span><span style="font-size:13px;color:#ADB6C2">Bez fotografie · 2 hlavice, 1 senzor</span></div>
+        <div style="width:44px;height:44px;border-radius:12px;background:#30353C;display:flex;align-items:center;justify-content:center;color:#ADB6C2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"></path><path d="M4 18v2"></path><path d="M20 18v2"></path></svg></div>
+      </div>
+      <span style="font-size:72px;line-height:1;font-weight:500;letter-spacing:-0.03em;font-variant-numeric:tabular-nums">20,6<span style="font-size:30px;color:#ADB6C2;font-weight:400;margin-left:4px">°C</span></span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums"><span>Cíl <span style="color:#F4F6F8;font-weight:500">22,0 °C</span></span><span>Vlhkost <span style="color:#F4F6F8;font-weight:500">48 %</span></span><span>Okno <span style="color:#F4F6F8;font-weight:500">zavřené</span></span></div>
+    </div>
+  </div>
+  <p style="margin:0;font-size:13px;color:#8E97A3">Vlevo hlavička detailu s fotografií: hodnoty leží na neprůhledném podkladu 78–82 % a rozostření. Vpravo stav bez fotografie: ikona typu místnosti a větší hodnota.</p>
+</section>
+
+<!-- 04 OVLÁDÁNÍ -->
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">04</span><h2 style="margin:0;font-size:24px;font-weight:600">Ovládání a rozsah</h2></div>
+  <p style="margin:0;max-width:720px;color:#ADB6C2;font-size:15px;line-height:1.55">Každý ovládací blok má nahoře štítek rozsahu: <span style="color:#F4F6F8">Celá domácnost</span>, <span style="color:#F4F6F8">Místnost</span>, nebo <span style="color:#F4F6F8">Zařízení</span>. Všechny cíle mají alespoň 44 × 44 px. Vyzkoušejte ovládání klávesou Tab.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px">
+
+    <div style="background:#24272C;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <span style="font-size:16px;font-weight:600">Režim</span>
+        <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#ADB6C2;border:1px solid #454C56;border-radius:8px;padding:4px 8px;white-space:nowrap;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>Celá domácnost</span>
+      </div>
+      <div role="radiogroup" aria-label="Režim domácnosti" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:#1D2024;border-radius:14px;padding:4px">
+        <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+          <button type="button" role="radio" aria-checked="{{ m.checked }}" onClick="{{ m.select }}" style="all:unset;cursor:pointer;min-height:48px;border-radius:11px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:500;background:{{ m.bg }};color:{{ m.fg }};transition:background 120ms" style-focus="outline:2px solid #8CC8FF;outline-offset:1px">{{ m.label }}</button>
+        </sc-for>
+      </div>
+      <span style="font-size:13px;color:#ADB6C2;line-height:1.45">{{ modeNote }}</span>
+    </div>
+
+    <div style="background:#24272C;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <span style="font-size:16px;font-weight:600">Požadovaná teplota</span>
+        <span style="font-size:12px;font-weight:500;color:#ADB6C2;border:1px solid #454C56;border-radius:8px;padding:4px 8px;white-space:nowrap;flex:none">Místnost · Obývák</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <button type="button" aria-label="Snížit o 0,5 °C" onClick="{{ dec }}" disabled="{{ atMin }}" style="all:unset;cursor:pointer;width:56px;height:56px;border-radius:14px;background:#30353C;display:flex;align-items:center;justify-content:center;color:#F4F6F8" style-hover="background:#3A4048" style-focus="outline:2px solid #8CC8FF;outline-offset:2px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path></svg></button>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px" aria-live="polite">
+          <span style="font-size:52px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">{{ targetText }}<span style="font-size:22px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span>
+          <span style="font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums">Naměřeno 20,6 °C · rozsah 5–30 °C</span>
+        </div>
+        <button type="button" aria-label="Zvýšit o 0,5 °C" onClick="{{ inc }}" disabled="{{ atMax }}" style="all:unset;cursor:pointer;width:56px;height:56px;border-radius:14px;background:#30353C;display:flex;align-items:center;justify-content:center;color:#F4F6F8" style-hover="background:#3A4048" style-focus="outline:2px solid #8CC8FF;outline-offset:2px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;font-weight:500;color:#ADB6C2">Platnost ruční změny</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ durations }}" as="d" hint-placeholder-count="4">
+            <button type="button" aria-pressed="{{ d.checked }}" onClick="{{ d.select }}" style="all:unset;cursor:pointer;min-height:44px;padding:0 14px;border-radius:10px;display:flex;align-items:center;font-size:14px;font-weight:500;background:{{ d.bg }};color:{{ d.fg }};border:1px solid {{ d.border }}" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">{{ d.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-top:1px solid #454C56;padding-top:14px">
+        <span style="font-size:13px;color:#ADB6C2">{{ durationNote }}</span>
+        <button type="button" onClick="{{ apply }}" style="all:unset;cursor:pointer;min-height:44px;padding:0 18px;border-radius:12px;background:#8CC8FF;color:#101820;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px" style-hover="background:#A6D4FF" style-focus="outline:2px solid #F4F6F8;outline-offset:2px">{{ applyLabel }}</button>
+      </div>
+    </div>
+
+    <div style="background:#24272C;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <span style="font-size:16px;font-weight:600">Zařízení</span>
+        <span style="font-size:12px;font-weight:500;color:#ADB6C2;border:1px solid #454C56;border-radius:8px;padding:4px 8px;white-space:nowrap;flex:none">Místnost · Koupelna</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;min-height:56px">
+        <div style="width:44px;height:44px;border-radius:12px;background:{{ lightIconBg }};color:{{ lightIconFg }};display:flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:500">Stropní světlo</span><span style="font-size:13px;color:#ADB6C2">{{ lightText }}</span></div>
+        <button type="button" role="switch" aria-checked="{{ lightOn }}" aria-label="Stropní světlo, Koupelna" onClick="{{ toggleLight }}" style="all:unset;cursor:pointer;width:56px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px" style-focus="outline:2px solid #8CC8FF;outline-offset:0">
+          <span style="width:48px;height:28px;border-radius:14px;background:{{ switchTrack }};border:1px solid {{ switchBorder }};position:relative;display:block;transition:background 150ms">
+            <span style="position:absolute;top:3px;left:{{ switchKnob }};width:20px;height:20px;border-radius:10px;background:{{ switchKnobBg }};transition:left 150ms"></span>
+          </span>
+        </button>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;min-height:56px;border-top:1px solid #454C56;padding-top:14px">
+        <div style="width:44px;height:44px;border-radius:12px;background:#30353C;color:#ADB6C2;display:flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path></svg></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:500">Termostatická hlavice</span><span style="font-size:13px;color:#ADB6C2;font-variant-numeric:tabular-nums">Ventil 35 % · baterie 72 %</span></div>
+        <span style="font-family:'Geist Mono',monospace;font-size:12px;color:#8E97A3">trv-koup-01</span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;border-top:1px solid #454C56;padding-top:14px">
+        <button type="button" style="all:unset;cursor:pointer;min-height:44px;padding:0 16px;border-radius:12px;background:#8CC8FF;color:#101820;font-size:14px;font-weight:600;display:flex;align-items:center" style-focus="outline:2px solid #F4F6F8;outline-offset:2px">Primární</button>
+        <button type="button" style="all:unset;cursor:pointer;min-height:44px;padding:0 16px;border-radius:12px;background:#30353C;color:#F4F6F8;font-size:14px;font-weight:500;display:flex;align-items:center" style-hover="background:#3A4048" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">Sekundární</button>
+        <button type="button" style="all:unset;cursor:pointer;min-height:44px;padding:0 16px;border-radius:12px;color:#8CC8FF;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px" style-hover="background:#1F3447" style-focus="outline:2px solid #8CC8FF;outline-offset:2px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg>Historie</button>
+        <button type="button" disabled="{{ true }}" style="all:unset;cursor:not-allowed;min-height:44px;padding:0 16px;border-radius:12px;background:#24272C;border:1px dashed #454C56;color:#8E97A3;font-size:14px;font-weight:500;display:flex;align-items:center">Nedostupné</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 STAVY -->
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">05</span><h2 style="margin:0;font-size:24px;font-weight:600">Hlášení, události a stavy</h2></div>
+  <p style="margin:0;max-width:720px;color:#ADB6C2;font-size:15px;line-height:1.55">Stavová hlášení popisují, co systém naměřil nebo udělal. Nejsou to doporučení. Budoucí AI návrhy budou mít vlastní, zřetelně odlišný prvek.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div role="status" style="background:#3A3120;border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0C674" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"></path><path d="M12 4v16"></path></svg>
+        <div style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">Koupelna: okno otevřené 12 min</span><span style="font-size:13px;color:#F6DFAE">Topení v místnosti je pozastavené, dokud se okno nezavře.</span></div>
+      </div>
+      <div role="alert" style="background:#3D2324;border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9A94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643">
+</path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg>
+        <div style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">Toaleta: hlavice odpojená</span><span style="font-size:13px;color:#FFD0CD">Naposledy odpověděla v 05:12. Zkontrolujte baterii nebo dosah.</span></div>
+      </div>
+      <div role="status" aria-live="polite" style="background:{{ cmd.bg }};border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:center;min-height:72px">
+        <span style="width:20px;height:20px;flex:none;display:flex;align-items:center;justify-content:center;color:{{ cmd.fg }};font-size:16px;font-weight:600">{{ cmd.icon }}</span>
+        <div style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font-size:15px;font-weight:600">{{ cmd.title }}</span><span style="font-size:13px;color:#ADB6C2">{{ cmd.text }}</span></div>
+        <sc-if value="{{ cmd.retry }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ apply }}" style="all:unset;cursor:pointer;min-height:44px;padding:0 14px;border-radius:10px;background:#30353C;font-size:14px;font-weight:500;display:flex;align-items:center" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">Zkusit znovu</button>
+        </sc-if>
+      </div>
+      <div style="background:#1D2024;border:1px dashed #454C56;border-radius:14px;padding:22px 18px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center">
+        <span style="font-size:15px;font-weight:600">Zatím žádná historie</span>
+        <span style="font-size:13px;color:#ADB6C2;max-width:300px">Graf se zobrazí po prvních hodinách měření. Senzor byl přidán dnes v 09:40.</span>
+      </div>
+    </div>
+
+    <div style="background:#24272C;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:4px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px"><span style="font-size:16px;font-weight:600">Poslední události</span><span style="font-size:13px;color:#ADB6C2">Dnes</span></div>
+      <sc-for list="{{ events }}" as="e" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:52px 28px minmax(0,1fr);gap:10px;align-items:start;padding:10px 0;border-top:1px solid #30353C">
+          <span style="font-size:14px;font-weight:500;color:#ADB6C2;font-variant-numeric:tabular-nums;padding-top:2px">{{ e.time }}</span>
+          <span style="width:28px;height:28px;border-radius:8px;background:#30353C;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:{{ e.color }}">{{ e.mark }}</span>
+          <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:14px;font-weight:500">{{ e.title }}</span><span style="font-size:13px;color:#ADB6C2">{{ e.text }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">06</span><h2 style="margin:0;font-size:24px;font-weight:600">Zdroj tepla</h2></div>
+    <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#F0C674;border:1px dashed #F0C674;border-radius:6px;padding:4px 8px">DEMO DATA</span>
+  </div>
+  <p style="margin:0;max-width:720px;color:#ADB6C2;font-size:15px;line-height:1.55">Automatický kotel na uhlí s regulátorem IRYD 620. Zatím jen zobrazuji jeho stav. Výkon a zásobu paliva neuvádím, dokud nebudou k dispozici skutečná data. Doplnění paliva lze zapsat ručně.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px">
+    <div style="background:#24272C;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:600">Kotel</span><span style="font-size:13px;color:#ADB6C2">Moceko Pro 25 · IRYD 620</span></div>
+        <span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#ADB6C2;border:1px solid #454C56;border-radius:8px;padding:4px 8px;white-space:nowrap;flex:none">Celá domácnost</span>
+      </div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:13px;font-weight:500;color:#ADB6C2">Teplota vody v kotli</span>
+          <span style="font-size:52px;line-height:1;font-weight:500;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">69,5<span style="font-size:22px;color:#ADB6C2;font-weight:400;margin-left:3px">°C</span></span>
+        </div>
+        <span style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#8CC8FF;padding-bottom:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>Provoz</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="position:relative;height:10px;border-radius:5px;background:#1D2024">
+          <span style="position:absolute;left:0;top:0;bottom:0;width:81.8%;border-radius:5px;background:#8CC8FF"></span>
+          <span style="position:absolute;left:82.4%;top:-5px;width:2px;height:20px;background:#F4F6F8;border-radius:1px"></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:#8E97A3;font-variant-numeric:tabular-nums"><span>0 °C</span><span style="color:#F4F6F8">nastaveno 70 °C</span><span>max. 85 °C</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+        <div style="background:#1D2024;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#ADB6C2">Palivo</span><span style="font-size:15px;font-weight:500">Ořech 2</span></div>
+        <div style="background:#1D2024;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#ADB6C2">Jmen. výkon</span><span style="font-size:15px;font-weight:500;font-variant-numeric:tabular-nums">7,5–25 kW</span></div>
+        <div style="background:#1D2024;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;color:#ADB6C2">Zásobník</span><span style="font-size:15px;font-weight:500;color:#8E97A3">neměří se</span></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #454C56;padding-top:14px">
+        <span style="font-size:13px;color:#ADB6C2">Palivo doplněno dnes v 07:10</span>
+        <button type="button" style="all:unset;cursor:pointer;min-height:44px;padding:0 16px;border-radius:12px;background:#30353C;font-size:14px;font-weight:500;display:flex;align-items:center" style-hover="background:#3A4048" style-focus="outline:2px solid #8CC8FF;outline-offset:2px">Zapsat doplnění</button>
+      </div>
+    </div>
+
+    <div style="background:#24272C;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:16px;font-weight:600">Proč obývák topí</span><span style="font-size:12px;font-weight:500;color:#ADB6C2;border:1px solid #454C56;border-radius:8px;padding:4px 8px;white-space:nowrap;flex:none">Místnost · Obývák</span></div>
+      <p style="margin:0;font-size:13px;color:#ADB6C2">Stavové vysvětlení složené z naměřených hodnot. Není to doporučení.</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;padding:12px 0;border-top:1px solid #30353C;align-items:center"><span style="font-size:13px;font-weight:600;color:#8E97A3;font-variant-numeric:tabular-nums">1</span><span style="font-size:14px">Naměřeno je méně, než je cíl</span><span style="font-size:14px;font-weight:500;font-variant-numeric:tabular-nums">20,6 → 22,0 °C</span></div>
+        <div style="display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;padding:12px 0;border-top:1px solid #30353C;align-items:center"><span style="font-size:13px;font-weight:600;color:#8E97A3">2</span><span style="font-size:14px">Cíl platí podle rozvrhu</span><span style="font-size:14px;font-weight:500;font-variant-numeric:tabular-nums">Den · do 22:00</span></div>
+        <div style="display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;padding:12px 0;border-top:1px solid #30353C;align-items:center"><span style="font-size:13px;font-weight:600;color:#8E97A3">3</span><span style="font-size:14px">Hlavice otevírají ventil</span><span style="font-size:14px;font-weight:500;font-variant-numeric:tabular-nums">60 % · 55 %</span></div>
+        <div style="display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;padding:12px 0;border-top:1px solid #30353C;align-items:center"><span style="font-size:13px;font-weight:600;color:#8E97A3">4</span><span style="font-size:14px">Kotel dodává teplou vodu</span><span style="font-size:14px;font-weight:500;font-variant-numeric:tabular-nums">69,5 °C</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;border-top:1px solid #454C56;padding-top:32px">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8CC8FF">07</span><h2 style="margin:0;font-size:24px;font-weight:600">Pravidla</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;font-size:14px;line-height:1.55;color:#ADB6C2">
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="color:#F4F6F8;font-weight:600">Zaoblení</span><span>10 px malé prvky a čipy, 12 px tlačítka, 14 px hlášení, 16 px karty.</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="color:#F4F6F8;font-weight:600">Rozestupy</span><span>Mřížka 4 px. Karty 18–20 px uvnitř, 14 px mezi kartami, 24 px mezi skupinami.</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="color:#F4F6F8;font-weight:600">Focus</span><span>Obrys 2 px v barvě akcentu s odsazením 2 px. Na akcentových tlačítkách bílý.</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="color:#F4F6F8;font-weight:600">Pohyb</span><span>120–180 ms ease-out jen pro změnu stavu. Při reduced motion bez animací a bez pulzování skeletonu.</span></div>
+  </div>
+</section>
+
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPhoto&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;simulateFailure&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { room: 'obyvak', mode: 'doma', target: 22, duration: '2h', light: true, cmd: 'idle', tries: 0 };
+  fmt(v) { return v.toFixed(1).replace('.', ','); }
+  apply = () => {
+    if (this.state.cmd === 'pending') return;
+    this.setState({ cmd: 'pending' });
+    clearTimeout(this.t);
+    this.t = setTimeout(() => {
+      const fail = (this.props.simulateFailure ?? true) && this.state.tries % 2 === 0;
+      this.setState(s => ({ cmd: fail ? 'fail' : 'ok', tries: s.tries + 1 }));
+    }, 900);
+  };
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const s = this.state;
+    const rooms = ['obyvak', 'loznice', 'koupelna', 'chodba', 'toaleta'];
+    const tiles = {}, selectRoom = {};
+    rooms.forEach(r => {
+      const on = s.room === r;
+      tiles[r] = { bg: on ? '#2A2E34' : '#24272C', border: on ? '#8CC8FF' : '#24272C' };
+      selectRoom[r] = () => this.setState({ room: r });
+    });
+    const modeDefs = [['doma', 'Doma'], ['pryc', 'Pryč'], ['noc', 'Noc']];
+    const notes = {
+      doma: 'Místnosti topí podle svých denních rozvrhů.',
+      pryc: 'Všechny místnosti drží útlumovou teplotu 17,0 °C, dokud režim nezměníte.',
+      noc: 'Místnosti přejdou na noční teploty. Ráno se vrátí podle rozvrhu.'
+    };
+    const durDefs = [['1h', '1 hodina'], ['2h', '2 hodiny'], ['next', 'Do další změny rozvrhu'], ['perm', 'Trvale']];
+    const durNotes = { '1h': 'Platí do ', '2h': 'Platí do ', next: 'Platí do 22:00, pak podle rozvrhu', perm: 'Rozvrh bude v místnosti vypnutý' };
+    const now = new Date();
+    const until = h => { const d = new Date(now.getTime() + h * 3600000); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); };
+    const durationNote = s.duration === '1h' ? durNotes['1h'] + until(1) : s.duration === '2h' ? durNotes['2h'] + until(2) : durNotes[s.duration];
+    const cmdMap = {
+      idle: { bg: '#24272C', fg: '#ADB6C2', icon: '·', title: 'Stav příkazu', text: 'Po stisknutí „Nastavit“ se zde zobrazí výsledek.', retry: false },
+      pending: { bg: '#24272C', fg: '#8CC8FF', icon: '…', title: 'Odesílám do hlavic v obýváku', text: 'Čekám na potvrzení ze zařízení.', retry: false },
+      ok: { bg: '#1E3328', fg: '#86D5A6', icon: '✓', title: 'Obývák: cíl ' + this.fmt(s.target) + ' °C nastaven', text: 'Obě hlavice potvrdily změnu.', retry: false },
+      fail: { bg: '#3D2324', fg: '#FF9A94', icon: '!', title: 'Příkaz se nepodařilo provést', text: 'Hlavice 2 v obýváku nepotvrdila změnu. Původní cíl zůstává.', retry: true }
+    };
+    const on = s.light;
+    return {
+      tiles, selectRoom,
+      showPhoto: this.props.showPhoto ?? true,
+      modes: modeDefs.map(([k, l]) => ({ label: l, checked: s.mode === k, bg: s.mode === k ? '#8CC8FF' : 'transparent', fg: s.mode === k ? '#101820' : '#ADB6C2', select: () => this.setState({ mode: k }) })),
+      modeNote: notes[s.mode],
+      targetText: this.fmt(s.target),
+      atMin: s.target <= 5, atMax: s.target >= 30,
+      dec: () => this.setState(x => ({ target: Math.max(5, x.target - 0.5), cmd: 'idle' })),
+      inc: () => this.setState(x => ({ target: Math.min(30, x.target + 0.5), cmd: 'idle' })),
+      durations: durDefs.map(([k, l]) => ({ label: l, checked: s.duration === k, bg: s.duration === k ? '#1F3447' : 'transparent', fg: s.duration === k ? '#8CC8FF' : '#F4F6F8', border: s.duration === k ? '#2E4C66' : '#454C56', select: () => this.setState({ duration: k }) })),
+      durationNote,
+      apply: this.apply,
+      applyLabel: s.cmd === 'pending' ? 'Odesílám…' : 'Nastavit ' + this.fmt(s.target) + ' °C',
+      cmd: cmdMap[s.cmd],
+      lightOn: on,
+      lightText: on ? 'Zapnuto · od 18:42' : 'Vypnuto',
+      lightIconBg: on ? '#1F3447' : '#30353C', lightIconFg: on ? '#8CC8FF' : '#ADB6C2',
+      switchTrack: on ? '#8CC8FF' : '#1D2024', switchBorder: on ? '#8CC8FF' : '#66707C',
+      switchKnob: on ? '23px' : '3px', switchKnobBg: on ? '#101820' : '#ADB6C2',
+      toggleLight: () => this.setState(x => ({ light: !x.light })),
+      events: [
+        { time: '07:10', mark: 'K', color: '#ADB6C2', title: 'Kotel · palivo doplněno', text: 'Zapsáno ručně' },
+        { time: '06:58', mark: '!', color: '#F0C674', title: 'Koupelna · okno otevřeno', text: 'Topení v místnosti pozastaveno' },
+        { time: '06:30', mark: 'R', color: '#8CC8FF', title: 'Ložnice · rozvrh', text: 'Cíl změněn z 18,0 na 19,0 °C' },
+        { time: '05:12', mark: '×', color: '#FF9A94', title: 'Toaleta · hlavice odpojena', text: 'Bez odpovědi' },
+        { time: '00:00', mark: 'N', color: '#ADB6C2', title: 'Celá domácnost · režim Noc', text: 'Nastaveno ručně' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

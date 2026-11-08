@@ -6,13 +6,13 @@
 	<title>Simulátor · Doma</title>
 </svelte:head>
 
-<h1 class="text-2xl font-bold md:text-3xl">Simulátor</h1>
+<h1 class="text-title-compact md:text-title">Simulátor</h1>
 
 <section
 	aria-labelledby="simulation-status"
-	class="mt-6 max-w-prose rounded-card border border-border bg-surface p-6"
+	class="mt-6 max-w-prose rounded-xl border border-dashed border-border bg-surface-sunken p-5"
 >
-	<h2 id="simulation-status" class="flex items-center gap-3 text-lg font-semibold">
+	<h2 id="simulation-status" class="flex items-center gap-3 text-heading">
 		<Unplug aria-hidden="true" class="size-5 text-accent" />
 		Simulační jádro není připojeno
 	</h2>

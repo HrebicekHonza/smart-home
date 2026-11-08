@@ -3,3 +3,4 @@ pnpm-lock.yaml
 **/build/
 **/test-results/
 **/playwright-report/
+docs/Formulář pro design systém/

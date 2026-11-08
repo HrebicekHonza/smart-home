@@ -1,6 +1,12 @@
-export type * from './domain/units.ts';
-export type * from './domain/room.ts';
-export type * from './domain/events.ts';
-export type * from './ports/home-gateway.ts';
+export * from './domain/units.ts';
+export * from './domain/local-time.ts';
 export * from './domain/measurement.ts';
 export * from './domain/setpoint.ts';
+export * from './domain/schedule.ts';
+export * from './domain/override.ts';
+export * from './domain/home.ts';
+export * from './domain/target.ts';
+export * from './domain/status.ts';
+export * from './domain/events.ts';
+export type * from './ports/home-gateway.ts';
+export * from './ports/clock.ts';
