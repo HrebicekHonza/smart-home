@@ -1,16 +1,17 @@
-import type { EpochMillis } from './units.ts';
+import { MINUTE_MS, type Celsius, type EpochMillis, type Percent } from './units.ts';
 
-export interface Measurement<T> {
-	readonly value: T;
-	readonly measuredAt: EpochMillis;
+export interface Measurement {
+	readonly at: EpochMillis;
+	readonly temperature: Celsius | null;
+	readonly humidity: Percent | null;
 }
 
-export const DEFAULT_MAX_MEASUREMENT_AGE_MS = 5 * 60 * 1000;
+export const STALE_MEASUREMENT_AFTER_MS = 30 * MINUTE_MS;
 
 export function isStale(
-	measurement: Measurement<unknown>,
+	measurement: Pick<Measurement, 'at'>,
 	now: EpochMillis,
-	maxAgeMs: number = DEFAULT_MAX_MEASUREMENT_AGE_MS
+	maxAgeMs: number = STALE_MEASUREMENT_AFTER_MS
 ): boolean {
-	return now - measurement.measuredAt > maxAgeMs;
+	return now - measurement.at > maxAgeMs;
 }

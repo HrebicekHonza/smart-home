@@ -2,12 +2,33 @@
 @import './lib/styles/fonts.css';
 @import './lib/styles/tokens.css';
 
+@utility unit {
+	margin-left: 4px;
+	font-size: 0.44em;
+	font-weight: 400;
+	letter-spacing: 0;
+	color: var(--color-text-secondary);
+}
+
 @layer base {
 	html {
 		background-color: var(--color-background);
 		color: var(--color-text-primary);
 		font-family: var(--font-sans);
+		font-size: var(--text-body);
+		line-height: var(--text-body--line-height);
 		font-variant-numeric: tabular-nums;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	button:not(:disabled),
+	[role='button']:not([aria-disabled='true']) {
+		cursor: pointer;
+	}
+
+	:disabled,
+	[aria-disabled='true'] {
+		cursor: not-allowed;
 	}
 
 	:focus-visible {
@@ -19,9 +40,8 @@
 		*,
 		*::before,
 		*::after {
-			animation-duration: 0.01ms !important;
-			animation-iteration-count: 1 !important;
-			transition-duration: 0.01ms !important;
+			animation: none !important;
+			transition: none !important;
 			scroll-behavior: auto !important;
 		}
 	}

@@ -1,19 +1,43 @@
+# Dependencies
 node_modules/
+
+# Build and tool output
 .svelte-kit/
 build/
 dist/
+.vite/
 coverage/
 test-results/
 playwright-report/
 blob-report/
 *.tsbuildinfo
+.eslintcache
 vite.config.*.timestamp-*
 
+# Environment
 .env
 .env.*
 !.env.example
 
+# Local design hand-offs and exports (reference only, kept outside git)
+/docs/*.zip
+/docs/Formulář pro design systém/
+
+# Editors and local tooling
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.claude/settings.local.json
+*.tmp.*
+
+# Logs
+*.log
+pnpm-debug.log*
+
+# OS and sync clients
 .DS_Store
 Thumbs.db
 desktop.ini
-*.log
+.dropbox
+.dropbox.attr

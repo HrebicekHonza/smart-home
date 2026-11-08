@@ -15,23 +15,37 @@ const tokens = Object.fromEntries(
 const WCAG_AA_TEXT = 4.5;
 const WCAG_AA_NON_TEXT = 3;
 
+const surfaces = [
+	'background',
+	'surface-sunken',
+	'surface',
+	'surface-hover',
+	'surface-raised'
+] as const;
+
 const textPairs = [
-	['text-primary', 'background'],
-	['text-primary', 'surface'],
-	['text-primary', 'surface-raised'],
-	['text-secondary', 'background'],
-	['text-secondary', 'surface'],
-	['text-secondary', 'surface-raised'],
-	['accent', 'background'],
-	['accent', 'surface'],
-	['accent', 'surface-raised'],
-	['on-accent', 'accent']
+	...surfaces
+		.flatMap((surface) =>
+			(['text-primary', 'text-secondary', 'text-tertiary', 'accent'] as const).map(
+				(text) => [text, surface] as const
+			)
+		)
+		.filter(([text, surface]) => !(text === 'text-tertiary' && surface === 'surface-raised')),
+	...(['success', 'warning', 'danger'] as const).flatMap((state) => [
+		[state, 'surface'] as const,
+		[`${state}-text`, `${state}-bg`] as const,
+		['text-primary', `${state}-bg`] as const
+	]),
+	['accent', 'accent-muted'],
+	['on-accent', 'accent'],
+	['on-accent', 'accent-hover']
 ] as const;
 
 const nonTextPairs = [
+	['border-strong', 'surface'],
+	['border-strong', 'surface-sunken'],
 	['accent', 'background'],
-	['accent', 'surface'],
-	['accent', 'surface-raised']
+	['accent', 'surface']
 ] as const;
 
 describe('design token contrast', () => {
@@ -41,14 +55,11 @@ describe('design token contrast', () => {
 		);
 	});
 
-	it.each(nonTextPairs)(
-		'%s focus ring on %s meets WCAG AA for UI components',
-		(foreground, background) => {
-			expect(contrastRatio(token(foreground), token(background))).toBeGreaterThanOrEqual(
-				WCAG_AA_NON_TEXT
-			);
-		}
-	);
+	it.each(nonTextPairs)('%s on %s meets WCAG AA for UI components', (foreground, background) => {
+		expect(contrastRatio(token(foreground), token(background))).toBeGreaterThanOrEqual(
+			WCAG_AA_NON_TEXT
+		);
+	});
 });
 
 describe('contrastRatio', () => {

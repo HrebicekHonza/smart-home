@@ -1,4 +1,4 @@
-import type { Celsius, EpochMillis } from './units.ts';
+import type { Celsius } from './units.ts';
 
 export interface SetpointLimits {
 	readonly min: Celsius;
@@ -7,21 +7,6 @@ export interface SetpointLimits {
 }
 
 export const DEFAULT_SETPOINT_LIMITS: SetpointLimits = { min: 5, max: 30, step: 0.5 };
-
-export type SetpointRequest =
-	| { readonly status: 'pending'; readonly value: Celsius; readonly requestedAt: EpochMillis }
-	| {
-			readonly status: 'failed';
-			readonly value: Celsius;
-			readonly requestedAt: EpochMillis;
-			readonly reason: string;
-	  };
-
-export interface Setpoint {
-	readonly confirmed: Celsius;
-	readonly confirmedAt: EpochMillis;
-	readonly request?: SetpointRequest;
-}
 
 export type SetpointViolation = 'below-min' | 'above-max' | 'off-step';
 

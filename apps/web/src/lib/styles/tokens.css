@@ -1,15 +1,114 @@
 @theme static {
 	--color-background: #17191c;
+	--color-surface-sunken: #1d2024;
 	--color-surface: #24272c;
+	--color-surface-hover: #2a2e34;
 	--color-surface-raised: #30353c;
+	--color-surface-raised-hover: #3a4048;
+
 	--color-border: #454c56;
+	--color-border-subtle: #30353c;
+	--color-border-strong: #68727e;
+
 	--color-text-primary: #f4f6f8;
 	--color-text-secondary: #adb6c2;
+	--color-text-tertiary: #8e97a3;
+	--color-text-disabled: #66707c;
+
 	--color-accent: #8cc8ff;
+	--color-accent-hover: #a6d4ff;
 	--color-on-accent: #101820;
+	--color-accent-muted: #1f3447;
+	--color-accent-muted-border: #2e4c66;
+
+	--color-success: #86d5a6;
+	--color-success-bg: #1e3328;
+	--color-success-text: #c9ebd5;
+	--color-warning: #f0c674;
+	--color-warning-bg: #3a3120;
+	--color-warning-text: #f6dfae;
+	--color-danger: #ff9a94;
+	--color-danger-bg: #3d2324;
+	--color-danger-text: #ffd0cd;
+
+	--color-glass: rgb(23 25 28 / 0.8);
+	--color-scrim: rgb(10 12 14 / 0.72);
+
+	--radius-xs: 6px;
+	--radius-sm: 10px;
+	--radius-md: 12px;
+	--radius-lg: 14px;
+	--radius-xl: 16px;
+	--radius-2xl: 20px;
 
 	--font-sans: 'Manrope', system-ui, sans-serif;
+	--font-mono: 'Geist Mono', ui-monospace, monospace;
 
-	--radius-card: 1rem;
-	--radius-control: 0.75rem;
+	--text-value-xl: 80px;
+	--text-value-xl--line-height: 1;
+	--text-value-xl--letter-spacing: -0.03em;
+	--text-value-xl--font-weight: 500;
+	--text-value-xl-compact: 64px;
+	--text-value-xl-compact--line-height: 1;
+	--text-value-xl-compact--letter-spacing: -0.03em;
+	--text-value-xl-compact--font-weight: 500;
+	--text-value-l: 46px;
+	--text-value-l--line-height: 1;
+	--text-value-l--letter-spacing: -0.02em;
+	--text-value-l--font-weight: 500;
+	--text-value-l-compact: 36px;
+	--text-value-l-compact--line-height: 1;
+	--text-value-l-compact--letter-spacing: -0.02em;
+	--text-value-l-compact--font-weight: 500;
+	--text-stepper: 56px;
+	--text-stepper--line-height: 1;
+	--text-stepper--font-weight: 500;
+	--text-stepper-compact: 48px;
+	--text-stepper-compact--line-height: 1;
+	--text-stepper-compact--font-weight: 500;
+	--text-value-m: 36px;
+	--text-value-m--line-height: 1;
+	--text-value-m--letter-spacing: -0.02em;
+	--text-value-m--font-weight: 500;
+	--text-value-s: 22px;
+	--text-value-s--line-height: 1.1;
+	--text-value-s--font-weight: 500;
+	--text-title: 30px;
+	--text-title--line-height: 1.15;
+	--text-title--letter-spacing: -0.015em;
+	--text-title--font-weight: 600;
+	--text-title-compact: 26px;
+	--text-title-compact--line-height: 1.15;
+	--text-title-compact--letter-spacing: -0.015em;
+	--text-title-compact--font-weight: 600;
+	--text-heading: 16px;
+	--text-heading--line-height: 1.3;
+	--text-heading--font-weight: 600;
+	--text-body: 15px;
+	--text-body--line-height: 1.55;
+	--text-label: 14px;
+	--text-label--line-height: 1.3;
+	--text-label--font-weight: 500;
+	--text-caption: 13px;
+	--text-caption--line-height: 1.4;
+	--text-micro: 12px;
+	--text-micro--line-height: 1.35;
+	--text-micro--font-weight: 500;
+	--text-axis: 11px;
+	--text-axis--line-height: 1.3;
+
+	--ease-out: cubic-bezier(0.2, 0, 0, 1);
+	--animate-skeleton: skeleton 1.4s ease-in-out infinite;
+
+	@keyframes skeleton {
+		0%,
+		100% {
+			opacity: 0.5;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
+
+	--shadow-toast: 0 8px 24px rgb(0 0 0 / 0.35);
 }

@@ -1,29 +1,51 @@
-import type { DomainEvent } from '../domain/events.ts';
-import type { RoomId, RoomState } from '../domain/room.ts';
-import type { Celsius } from '../domain/units.ts';
+import type { HomeEvent } from '../domain/events.ts';
+import type { Boiler, DeviceId, HomeMode, Room, RoomId } from '../domain/home.ts';
+import type { OverrideDuration } from '../domain/override.ts';
+import type { Celsius, EpochMillis } from '../domain/units.ts';
 
 export type GatewayKind = 'demo' | 'live';
 
+export type Connection =
+	{ readonly status: 'online' } | { readonly status: 'offline'; readonly lastSyncAt: EpochMillis };
+
 export interface HomeSnapshot {
-	readonly rooms: readonly RoomState[];
+	readonly connection: Connection;
+	readonly mode: HomeMode;
+	readonly rooms: readonly Room[];
+	readonly boiler: Boiler;
+	readonly events: readonly HomeEvent[];
 }
 
-export interface SetTargetTemperatureCommand {
-	readonly type: 'set-target-temperature';
-	readonly roomId: RoomId;
-	readonly value: Celsius;
+export type HomeCommand =
+	| { readonly type: 'set-mode'; readonly mode: HomeMode }
+	| {
+			readonly type: 'set-target';
+			readonly roomId: RoomId;
+			readonly target: Celsius;
+			readonly duration: OverrideDuration;
+	  }
+	| { readonly type: 'cancel-override'; readonly roomId: RoomId }
+	| { readonly type: 'set-light'; readonly deviceId: DeviceId; readonly on: boolean };
+
+export type CommandFailure = 'timeout' | 'device-offline' | 'partial' | 'offline';
+
+export type CommandOutcome =
+	{ readonly status: 'confirmed' } | { readonly status: 'failed'; readonly reason: CommandFailure };
+
+export type HistoryRange = '24h' | '7d';
+
+export interface HistoryPoint {
+	readonly at: EpochMillis;
+	readonly measured: Celsius | null;
+	readonly target: Celsius;
 }
-
-export type HomeCommand = SetTargetTemperatureCommand;
-
-export type CommandResult =
-	{ readonly status: 'accepted' } | { readonly status: 'rejected'; readonly reason: string };
 
 export type Unsubscribe = () => void;
 
 export interface HomeGateway {
 	readonly kind: GatewayKind;
-	getSnapshot(): Promise<HomeSnapshot>;
-	subscribe(listener: (event: DomainEvent) => void): Unsubscribe;
-	send(command: HomeCommand): Promise<CommandResult>;
+	snapshot(): Promise<HomeSnapshot>;
+	subscribe(listener: (snapshot: HomeSnapshot) => void): Unsubscribe;
+	send(command: HomeCommand): Promise<CommandOutcome>;
+	history(roomId: RoomId, range: HistoryRange): Promise<readonly HistoryPoint[]>;
 }
