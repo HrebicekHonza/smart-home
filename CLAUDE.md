@@ -28,7 +28,7 @@ Personal smart-home app (heating first). Read [docs/architecture.md](docs/archit
 - No comments unless something genuinely cannot be expressed in code. Prefer clear names.
 - TypeScript strict; no `any`, no non-null assertions.
 - SOLID, KISS, DRY. Small modules with one reason to change.
-- Design tokens only from `apps/web/src/lib/styles/tokens.css`; no hard-coded colours in components. The design hand-off is in `docs/Formulář pro design systém/`; deviations go to ADR 0004.
+- Design tokens only from `apps/web/src/lib/styles/tokens.css`; no hard-coded colours in components. The design hand-off is kept locally in `docs/Formulář pro design systém/` (git-ignored); deviations go to ADR 0004.
 - Prefer native semantics: links for navigation, native radios, native `<dialog>`.
 - Accessibility: keyboard reachable, visible focus, touch targets at least 44 px (stepper 60 px, segments 48 px), respect reduced motion.
 - Tests check behaviour and domain rules, not implementation details. Unit tests sit next to the code (`*.test.ts`), E2E tests in `apps/web/e2e`.
@@ -39,5 +39,6 @@ Personal smart-home app (heating first). Read [docs/architecture.md](docs/archit
 - `master` is the main branch. Work on `feat/…`, `fix/…`, `chore/…` branches and merge through pull requests with green CI.
 - Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `ci:`).
 - Record significant decisions as ADRs in `docs/decisions/`.
+- Commit only what the project needs; keep `.gitignore` up to date for generated, local and reference files.
 - No real addresses, tokens or passwords in the repo; demo data is anonymous. `.env.example` holds placeholders only.
 - The working copy lives in Dropbox. After creating new generated folders, run `pnpm dropbox:ignore`.

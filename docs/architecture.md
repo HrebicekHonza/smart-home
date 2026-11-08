@@ -57,7 +57,7 @@ Room pages are prerendered from the demo room ids exposed by the composition roo
 
 ## Design system
 
-The approved Claude Design hand-off lives in [docs/Formulář pro design systém](<Formulář pro design systém/design_handoff_doma/README.md>). Its tokens are in one file, [tokens.css](../apps/web/src/lib/styles/tokens.css), as a Tailwind `@theme`, available both as utilities (`bg-surface`, `text-value-xl`) and as CSS custom properties. A unit test checks WCAG AA contrast of the colour pairs actually used. Deviations from the hand-off are recorded in [ADR 0004](decisions/0004-design-handoff-adaptation.md).
+The approved Claude Design hand-off is kept locally in `docs/Formulář pro design systém/` and is not committed; everything the code needs from it lives in the repository. Its tokens are in one file, [tokens.css](../apps/web/src/lib/styles/tokens.css), as a Tailwind `@theme`, available both as utilities (`bg-surface`, `text-value-xl`) and as CSS custom properties. A unit test checks WCAG AA contrast of the colour pairs actually used. Deviations from the hand-off are recorded in [ADR 0004](decisions/0004-design-handoff-adaptation.md).
 
 ## Future placement
 

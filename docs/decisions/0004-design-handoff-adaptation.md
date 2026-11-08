@@ -5,7 +5,7 @@
 
 ## Context
 
-The hand-off in `docs/Formulář pro design systém/design_handoff_doma` defines high-fidelity Overview and Room detail screens, tokens and a suggested code structure. Where it conflicts with the project's architecture, cleanliness of the project wins.
+The hand-off (kept locally in `docs/Formulář pro design systém/design_handoff_doma`, not committed) defines high-fidelity Overview and Room detail screens, tokens and a suggested code structure. Where it conflicts with the project's architecture, cleanliness of the project wins.
 
 ## Decisions
 
