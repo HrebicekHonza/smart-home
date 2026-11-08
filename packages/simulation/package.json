@@ -1,0 +1,18 @@
+{
+	"name": "@doma/simulation",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"golden:update": "node scripts/update-golden.mjs"
+	},
+	"devDependencies": {
+		"typescript": "6.0.3",
+		"vitest": "5.1.0"
+	}
+}

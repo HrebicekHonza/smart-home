@@ -14,6 +14,7 @@
 	let { defaultRoomId, children }: { defaultRoomId: string; children: Snippet } = $props();
 
 	const home = getHome();
+	const showDemoBadge = $derived(home.isDemo && page.route.id !== '/simulator');
 
 	const connection = $derived(
 		home.loading
@@ -70,7 +71,7 @@
 			{/each}
 		</ul>
 		<div class="mt-auto hidden flex-col items-center gap-3 md:flex">
-			{#if home.isDemo}
+			{#if showDemoBadge}
 				<DemoBadge />
 			{/if}
 			<p class="flex flex-col items-center gap-1">
@@ -92,7 +93,7 @@
 		aria-busy={home.loading}
 	>
 		<div class="mx-auto max-w-[1360px]">
-			{#if home.isDemo}
+			{#if showDemoBadge}
 				<div class="mb-4 md:hidden"><DemoBadge /></div>
 			{/if}
 			{#if home.snapshot?.connection.status === 'offline'}

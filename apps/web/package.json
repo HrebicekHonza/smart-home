@@ -17,7 +17,8 @@
 		"test:e2e": "playwright test"
 	},
 	"dependencies": {
-		"@doma/core": "workspace:*"
+		"@doma/core": "workspace:*",
+		"@doma/simulation": "workspace:*"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "1.70.0",

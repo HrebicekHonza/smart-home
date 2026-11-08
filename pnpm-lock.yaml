@@ -205,6 +205,9 @@ importers:
       '@doma/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@doma/simulation':
+        specifier: workspace:*
+        version: link:../../packages/simulation
     devDependencies:
       '@lucide/svelte':
         specifier: 1.70.0
@@ -244,6 +247,15 @@ importers:
         version: 5.1.0(@types/node@26.6.6)(vite@8.3.6(@types/node@26.6.6)(jiti@2.7.0))
 
   packages/core:
+    devDependencies:
+      typescript:
+        specifier: 6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: 5.1.0
+        version: 5.1.0(@types/node@26.6.6)(vite@8.3.6(@types/node@26.6.6)(jiti@2.7.0))
+
+  packages/simulation:
     devDependencies:
       typescript:
         specifier: 6.0.3

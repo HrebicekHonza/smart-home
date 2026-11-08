@@ -10,23 +10,24 @@
 
 ```
 apps/web ──depends on──▶ packages/core
+         └─depends on──▶ packages/simulation
 ```
 
-| Module                                  | Owns                                                                                               | Must not                                                   |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `packages/core`                         | Domain types, units, pure rules (effective target, room status, alerts, schedule, override), ports | Import Svelte, SvelteKit, browser APIs, network or storage |
-| `apps/web` `lib/app`                    | Composition root: picks the gateway, creates `HomeState`, provides it through Svelte context       | Hold user state in module-level singletons                 |
-| `apps/web` `lib/adapters`               | `HomeGateway` implementations (now: `demo`)                                                        | Be imported from routes, features or UI                    |
-| `apps/web` `lib/state`                  | `HomeState`: snapshot, drafts, command states, toast. Talks to the port only                       | Contain domain rules or Czech copy beyond toast messages   |
-| `apps/web` `lib/presentation`           | Czech labels, icons and tones for domain values                                                    | Hold state                                                 |
-| `apps/web` `lib/features/*`, `lib/ui`   | Feature components (`overview`, `room`) and shared primitives used by at least two features        | Import adapters; compute domain rules themselves           |
-| `packages/simulation` (not yet created) | Thermal model, controllers, metrics. Delivered by another agent once its contract is confirmed     | Depend on UI, devices, stores, network or storage          |
+| Module                                | Owns                                                                                                                           | Must not                                                                                                          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `packages/core`                       | Domain types, units, pure rules (effective target, room status, alerts, schedule, override), ports                             | Import Svelte, SvelteKit, browser APIs, network or storage                                                        |
+| `apps/web` `lib/app`                  | Composition root: picks the gateway, creates `HomeState`, provides it through Svelte context                                   | Hold user state in module-level singletons                                                                        |
+| `apps/web` `lib/adapters`             | `HomeGateway` implementations (now: `demo`)                                                                                    | Be imported from routes, features or UI                                                                           |
+| `apps/web` `lib/state`                | `HomeState`: snapshot, drafts, command states, toast. Talks to the port only                                                   | Contain domain rules or Czech copy beyond toast messages                                                          |
+| `apps/web` `lib/presentation`         | Czech labels, icons and tones for domain values                                                                                | Hold state                                                                                                        |
+| `apps/web` `lib/features/*`, `lib/ui` | Feature components (`overview`, `room`) and shared primitives used by at least two features                                    | Import adapters; compute domain rules themselves                                                                  |
+| `packages/simulation`                 | Thermal model, controllers, metrics and the semester paper's reference scenario ([contract](../packages/simulation/README.md)) | Depend on UI, devices, stores, network or storage; change the paper's numbers without updating the golden fixture |
 
 ESLint (`no-restricted-imports` in [eslint.config.js](../eslint.config.js)) enforces the core and adapter boundaries.
 
 ### Separation of concerns
 
-1. **Physical model and calculations** live only in `packages/simulation`. The app contains no parallel physics. Demo history curves are labelled as demo data, never as simulation output.
+1. **Physical model and calculations** live only in `packages/simulation`. The app contains no parallel physics. Demo history curves are labelled as demo data; the Simulator page is labelled as simulation output.
 2. **Controllers** take input values and return requested power in watts. They never call devices, stores, network or storage.
 3. **Measurement sources and commands** go through the `HomeGateway` port. `send()` resolves only after the device side confirmed or failed the command; the UI never updates optimistically.
 4. **UI** renders state from `HomeState` and sends commands through it.
@@ -40,12 +41,12 @@ ESLint (`no-restricted-imports` in [eslint.config.js](../eslint.config.js)) enfo
 
 ## Routes
 
-| Route             | Content                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------- |
-| `/`               | Overview: mode, alerts, favourite and other rooms, lights, boiler, events             |
-| `/mistnosti/[id]` | Room detail; `?historie=24h\|7d` opens the history dialog (shareable, Back closes it) |
-| `/vytapeni`       | Placeholder until the screen is designed                                              |
-| `/simulator`      | Placeholder until the simulation contract is confirmed                                |
+| Route             | Content                                                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`               | Overview: mode, alerts, favourite and other rooms, lights, boiler, events                                                                             |
+| `/mistnosti/[id]` | Room detail; `?historie=24h\|7d` opens the history dialog (shareable, Back closes it)                                                                 |
+| `/vytapeni`       | Placeholder until the screen is designed                                                                                                              |
+| `/simulator`      | Simulation workspace: room, controllers, scenario; temperature, power and outdoor charts; metrics table. State lives in a page-local `SimulatorState` |
 
 Room pages are prerendered from the demo room ids exposed by the composition root. `?demo=offline` and `?demo=loading` switch the demo gateway into the corresponding scenario.
 
@@ -72,8 +73,8 @@ The approved Claude Design hand-off is kept locally in `docs/Formulář pro desi
 
 1. ✅ Monorepo, tooling, CI/CD, design tokens, app shell
 2. ✅ Overview, room detail, target changes, open window, events and history through the demo adapter
-3. Heating screen once it is designed
-4. Simulation integration once the contract is confirmed ([ADR 0003](decisions/0003-simulation-contract-pending.md))
+3. ✅ Simulation core and Simulator page ([ADR 0003](decisions/0003-simulation-contract.md))
+4. Heating screen once it is designed
 
 Schedule editing, energy and AI strategies come later and are not prepared in code.
 
