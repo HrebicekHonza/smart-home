@@ -1,0 +1,15 @@
+@theme static {
+	--color-background: #17191c;
+	--color-surface: #24272c;
+	--color-surface-raised: #30353c;
+	--color-border: #454c56;
+	--color-text-primary: #f4f6f8;
+	--color-text-secondary: #adb6c2;
+	--color-accent: #8cc8ff;
+	--color-on-accent: #101820;
+
+	--font-sans: 'Manrope', system-ui, sans-serif;
+
+	--radius-card: 1rem;
+	--radius-control: 0.75rem;
+}
