@@ -96,17 +96,17 @@ const ROOMS: readonly RoomSeed[] = [
 		]
 	},
 	{
-		id: 'pokoj-kuchyn',
-		name: 'Pokoj (kuchyň)',
+		id: 'pokoj-chodba',
+		name: 'Pokoj (chodba)',
 		favorite: true,
 		schedule: dayNight(18, 21),
 		offsetFromTarget: 0.2,
 		humidity: 44,
 		measuredMinutesAgo: 1,
 		devices: (now) => [
-			thermostat('trv-pokoj-kuchyn-01', 'Hlavice', 10, 64, now),
-			climateSensor('th-pokoj-kuchyn-01', 1, now),
-			light('light-pokoj-kuchyn-01', 'Stolní lampa', false, now)
+			thermostat('trv-pokoj-chodba-01', 'Hlavice', 10, 64, now),
+			climateSensor('th-pokoj-chodba-01', 1, now),
+			light('light-pokoj-chodba-01', 'Stolní lampa', false, now)
 		]
 	},
 	{
@@ -163,14 +163,14 @@ const ROOMS: readonly RoomSeed[] = [
 		]
 	},
 	{
-		id: 'pokoj-chodba',
-		name: 'Pokoj (chodba)',
+		id: 'pokoj-kuchyn',
+		name: 'Pokoj (kuchyň)',
 		favorite: false,
 		schedule: dayNight(18, 20),
 		offsetFromTarget: -0.2,
 		humidity: 47,
 		measuredMinutesAgo: 4,
-		devices: (now) => [thermostat('trv-pokoj-chodba-01', 'Hlavice', 20, 59, now)]
+		devices: (now) => [thermostat('trv-pokoj-kuchyn-01', 'Hlavice', 20, 59, now)]
 	},
 	{
 		id: 'toaleta',
