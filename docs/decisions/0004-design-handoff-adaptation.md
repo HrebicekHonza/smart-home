@@ -23,7 +23,7 @@ The hand-off (kept locally in `docs/Formulář pro design systém/design_handoff
 | `--color-border-strong: #66707C` (claimed 3:1)            | `#68727E`                                                                         | Measured 2.98:1 against `surface`; nudged to 3.07:1                       |
 | "Demo data, simulovaný průběh"                            | "Demo data, ukázkový průběh"                                                      | The demo history is not physics simulation output (ADR 0003)              |
 | Static demo time 08:24                                    | Real clock; demo data generated relative to now                                   | Works at any time of day; E2E tests pin the clock                         |
-| "Můj pokoj", "Pokoj"                                      | "Pokoj (kuchyň)", "Pokoj (chodba)"                                                | Owner's naming                                                            |
+| "Můj pokoj", "Pokoj"                                      | "Pokoj (chodba)", "Pokoj (kuchyň)"                                                | Owner's naming                                                            |
 
 ## Not implemented yet
 
