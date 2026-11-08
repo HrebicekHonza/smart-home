@@ -49,7 +49,7 @@ export default ts.config(
 		...ts.configs.disableTypeChecked
 	},
 	{
-		files: ['packages/core/**'],
+		files: ['packages/core/**', 'packages/simulation/**'],
 		rules: {
 			'no-restricted-imports': [
 				'error',
@@ -57,7 +57,7 @@ export default ts.config(
 					patterns: [
 						{
 							group: frameworkImports,
-							message: '@doma/core must stay framework-independent.'
+							message: 'Domain and simulation packages must stay framework-independent.'
 						}
 					]
 				}

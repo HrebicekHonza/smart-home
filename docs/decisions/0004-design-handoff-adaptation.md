@@ -28,5 +28,6 @@ The hand-off (kept locally in `docs/Formulář pro design systém/design_handoff
 ## Not implemented yet
 
 - Room photos: none were supplied. The photo variant of the hero is ready and activated by `room.photoUrl`.
-- Heating and Simulator screens: low-fidelity in the hand-off, shown as labelled placeholders.
+- Heating screen: low-fidelity in the hand-off, shown as a labelled placeholder.
+- Simulator: built from the low-fidelity structure (320 px parameter panel, charts, metrics) in the hi-fi visual language; series colours `--color-series-1…4` are validated for colour-vision deficiency against `surface`.
 - Desktop four-column favourites are implemented from 1440 px; mobile event count is not reduced to five.

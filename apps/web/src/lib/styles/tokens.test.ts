@@ -45,7 +45,8 @@ const nonTextPairs = [
 	['border-strong', 'surface'],
 	['border-strong', 'surface-sunken'],
 	['accent', 'background'],
-	['accent', 'surface']
+	['accent', 'surface'],
+	...([1, 2, 3, 4] as const).map((slot) => [`series-${slot}`, 'surface'] as const)
 ] as const;
 
 describe('design token contrast', () => {

@@ -2,7 +2,7 @@
 
 Personal smart-home application, starting with room heating. Runs locally at home; a landscape tablet is the primary device, phone and desktop stay fully usable. The UI is Czech, the repository is English.
 
-> **Status:** first increment. Overview and room detail follow the approved design and run on a clearly labelled demo adapter (no hardware, account or cloud). Heating and Simulator screens are placeholders; see [docs/architecture.md](docs/architecture.md#roadmap).
+> **Status:** first increment. Overview and room detail follow the approved design and run on a clearly labelled demo adapter (no hardware, account or cloud). The Simulator compares heating controllers on the thermal model from the KKY/AKS semester paper. The Heating screen is a placeholder; see [docs/architecture.md](docs/architecture.md#roadmap).
 
 ## Requirements
 
@@ -37,7 +37,8 @@ The static build works from any directory. Set `BASE_PATH` (see [.env.example](.
 
 ```
 apps/web        SvelteKit app: routes, UI, application wiring
-packages/core   Framework-independent domain types, rules and ports
+packages/core        Framework-independent domain types, rules and ports
+packages/simulation  Room thermal model, controllers and metrics (semester paper core)
 docs/           Architecture and decision records
 .claude/        Claude Code project settings and skills
 ```

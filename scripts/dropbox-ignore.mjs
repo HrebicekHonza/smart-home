@@ -6,6 +6,7 @@ const root = join(import.meta.dirname, '..');
 const generatedDirs = [
 	'node_modules',
 	'packages/core/node_modules',
+	'packages/simulation/node_modules',
 	'apps/web/node_modules',
 	'apps/web/.svelte-kit',
 	'apps/web/build',

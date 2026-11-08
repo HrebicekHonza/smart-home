@@ -11,12 +11,12 @@ Personal smart-home app (heating first). Read [docs/architecture.md](docs/archit
 
 ## Architecture rules
 
-- `packages/core`: framework-independent domain types, rules and ports. No Svelte, SvelteKit, DOM, network or storage.
+- `packages/core` and `packages/simulation`: framework-independent TypeScript. No Svelte, SvelteKit, DOM, network or storage.
 - `apps/web` layers: `lib/app` (composition root) → `lib/adapters` (gateway implementations) → `lib/state` (`HomeState`, runes) → `lib/presentation` (Czech labels, icons, tones) → `lib/features/*` and `lib/ui` (components). Routes and components never import adapters; they use `getHome()` from context. No module-level user state.
 - Domain rules (effective target, status, alerts, schedule) belong in `packages/core` with tests, not in components.
 - No optimistic updates: state changes only after the gateway confirms a command.
 - Controllers return requested power from input values. They never call devices, stores, network or storage.
-- No physics in the app. Simulation code comes from `packages/simulation` once its contract is confirmed ([ADR 0003](docs/decisions/0003-simulation-contract-pending.md)). Never present mock data as simulation output.
+- Physics lives only in `packages/simulation` ([contract](packages/simulation/README.md), [ADR 0003](docs/decisions/0003-simulation-contract.md)). Its behaviour must match the semester paper: the golden tests must pass unchanged, and `golden.json` is regenerated only from the paper's results. Never present demo data as simulation output or vice versa.
 - Distinguish requested, confirmed (and by whom: demo or device), failed and stale states.
 - Everything must work as a prerendered static site: no server endpoints, no secrets, internal links and `goto()` via `resolve()` from `$app/paths` (typed `ResolvedPathname`), imports via `#lib/...`.
 - SvelteKit 3 specifics: `$app/env` (not `$app/environment`), `goto(url, { replace, reset, state })`, no `$lib` alias.

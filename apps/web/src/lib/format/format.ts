@@ -24,6 +24,16 @@ export function formatDecimal(value: number): string {
 	return decimalFormat.format(value);
 }
 
+export function formatNumber(
+	value: number,
+	maximumFractionDigits: number,
+	minimumFractionDigits = 0
+): string {
+	return new Intl.NumberFormat(LOCALE, { minimumFractionDigits, maximumFractionDigits }).format(
+		value
+	);
+}
+
 export function formatTemperature(value: Celsius): string {
 	return `${formatDecimal(value)}${NO_BREAK_SPACE}°C`;
 }

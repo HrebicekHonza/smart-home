@@ -1,0 +1,163 @@
+{
+	"room": {
+		"C": 617625,
+		"R": 0.08227270109504965,
+		"Rwindow": 0.010416666666666666,
+		"Pmax": 800,
+		"T0": 18,
+		"tauHeater": 900
+	},
+	"tau": 50813.67701383004,
+	"tauOpen": 5710.570137035191,
+	"identification": {
+		"gain": 0.08227270109504965,
+		"Tu": 763.4785795345829,
+		"Tn": 54624.882049313026,
+		"slope": 0.0012049117253309927
+	},
+	"zieglerNichols": {
+		"K": 782.6731024000385,
+		"Ti": 2542.383669850161
+	},
+	"band": 0.5,
+	"base": {
+		"valve": {
+			"energyKWh": 6.571690847078218,
+			"minutesOutsideBand": 1385,
+			"minutesBelowBand": 1296,
+			"overshoot": 0,
+			"settlingTime": null,
+			"switches": 2,
+			"meanAbsError": 0.8353761595889994
+		},
+		"thermostat": {
+			"energyKWh": 6.7533330293451055,
+			"minutesOutsideBand": 718,
+			"minutesBelowBand": 243.5,
+			"overshoot": 0.8506370551046345,
+			"settlingTime": 19890,
+			"switches": 10,
+			"meanAbsError": 0.6486761082225011
+		},
+		"pi": {
+			"energyKWh": 6.861333970257695,
+			"minutesOutsideBand": 226,
+			"minutesBelowBand": 114,
+			"overshoot": 0.2914197713732172,
+			"settlingTime": 0,
+			"switches": 2,
+			"meanAbsError": 0.326118454188031
+		},
+		"piWithoutAntiWindup": {
+			"energyKWh": 6.903927597040102,
+			"minutesOutsideBand": 478.5,
+			"minutesBelowBand": 201,
+			"overshoot": 3.098748036321968,
+			"settlingTime": 0,
+			"switches": 2,
+			"meanAbsError": 0.6237157430799046
+		}
+	},
+	"frost": {
+		"valve": {
+			"energyKWh": 9.3712934100277,
+			"minutesOutsideBand": 1395.5,
+			"minutesBelowBand": 1338,
+			"overshoot": 0,
+			"settlingTime": null,
+			"switches": 2,
+			"meanAbsError": 1.1734505572841694
+		},
+		"thermostat": {
+			"energyKWh": 9.786636783221883,
+			"minutesOutsideBand": 756,
+			"minutesBelowBand": 404,
+			"overshoot": 0.70378291838,
+			"settlingTime": null,
+			"switches": 11,
+			"meanAbsError": 0.7616623055634202
+		},
+		"pi": {
+			"energyKWh": 9.781156442355256,
+			"minutesOutsideBand": 262,
+			"minutesBelowBand": 180,
+			"overshoot": 0.225632876350641,
+			"settlingTime": 2220,
+			"switches": 2,
+			"meanAbsError": 0.3998413562682049
+		},
+		"piWithoutAntiWindup": {
+			"energyKWh": 9.740250007883674,
+			"minutesOutsideBand": 562.5,
+			"minutesBelowBand": 279.5,
+			"overshoot": 3.922578134251978,
+			"settlingTime": 2220,
+			"switches": 2,
+			"meanAbsError": 0.8268832040937201
+		}
+	},
+	"hysteresis": [
+		{
+			"h": 0.25,
+			"energyKWh": 6.873329768039627,
+			"minutesOutsideBand": 315,
+			"minutesBelowBand": 113.5,
+			"overshoot": 0.543561248261291,
+			"settlingTime": 3420,
+			"switches": 14,
+			"meanAbsError": 0.5204303252466173
+		},
+		{
+			"h": 0.5,
+			"energyKWh": 6.7533330293451055,
+			"minutesOutsideBand": 718,
+			"minutesBelowBand": 243.5,
+			"overshoot": 0.8506370551046345,
+			"settlingTime": 19890,
+			"switches": 10,
+			"meanAbsError": 0.6486761082225011
+		},
+		{
+			"h": 1,
+			"energyKWh": 6.899999345432743,
+			"minutesOutsideBand": 1031,
+			"minutesBelowBand": 419.5,
+			"overshoot": 1.3946532005788654,
+			"settlingTime": 20070,
+			"switches": 7,
+			"meanAbsError": 0.9426185740974441
+		}
+	],
+	"eulerStep": [
+		{
+			"dt": 10,
+			"energyKWh": 6.860920934062365,
+			"yEnd": 18.292090222211083,
+			"yMin": 17.60373044554901
+		},
+		{
+			"dt": 30,
+			"energyKWh": 6.861333970257695,
+			"yEnd": 18.291882599167987,
+			"yMin": 17.60000798723374
+		},
+		{
+			"dt": 60,
+			"energyKWh": 6.861869511324579,
+			"yEnd": 18.29161062475548,
+			"yMin": 17.594273257201348
+		},
+		{
+			"dt": 300,
+			"energyKWh": 6.867460419453093,
+			"yEnd": 18.289530410507666,
+			"yMin": 17.535532788477344
+		},
+		{
+			"dt": 900,
+			"energyKWh": 7.278433684914162,
+			"yEnd": 19.035151558708126,
+			"yMin": 17.25701861901063
+		}
+	]
+}
