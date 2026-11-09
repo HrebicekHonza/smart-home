@@ -21,19 +21,23 @@
 			ve strojírenství, ZČU) „Návrh a simulace inteligentního systému řízení vytápění chytré
 			domácnosti“.
 		</p>
-		<p>Porovnávají se čtyři regulátory:</p>
+		<p>
+			Hlavní otázkou je, co přinese výměna dnešní mechanické termostatické hlavice za chytrou
+			hlavici. Porovnávají se čtyři regulátory:
+		</p>
 		<ul class="grid list-disc gap-1 pl-5">
 			<li>
-				<strong class="text-text-primary">Termostatická hlavice</strong> – dnešní stav, chová se jako
-				P regulátor a nechává trvalou odchylku pod žádanou teplotou.
+				<strong class="text-text-primary">Termostatická hlavice</strong> – dnešní mechanická hlavice,
+				chová se jako P regulátor a nechává trvalou odchylku pod žádanou teplotou.
 			</li>
 			<li>
 				<strong class="text-text-primary">Termostat s hysterezí</strong> – dvoupolohová regulace, radiátor
 				buď topí naplno, nebo vůbec.
 			</li>
 			<li>
-				<strong class="text-text-primary">PI regulátor s anti-windupem</strong> – nastavený Zieglerovou–Nicholsovou
-				metodou z přechodové charakteristiky; drží teplotu přesně.
+				<strong class="text-text-primary">Chytrá hlavice</strong> – hlavice se servopohonem a teplotním
+				čidlem, kterou řídí PI regulátor s anti-windupem nastavený Zieglerovou–Nicholsovou metodou; drží
+				teplotu přesně a umožňuje časový program s nočním útlumem.
 			</li>
 			<li>
 				<strong class="text-text-primary">PI regulátor bez anti-windupu</strong> – pro srovnání ukazuje,

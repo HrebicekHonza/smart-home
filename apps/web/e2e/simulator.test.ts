@@ -13,7 +13,7 @@ test('shows the reference scenario as simulation output, not demo data', async (
 	await expect(page.getByText('DEMO DATA')).toHaveCount(0);
 	await expect(page.getByText(/Výsledek modelu, ne předpověď/)).toBeVisible();
 
-	const pi = metricsRow(page, 'PI s anti-windupem');
+	const pi = metricsRow(page, 'Chytrá hlavice');
 	await expect(pi).toContainText(/6,86\skWh/);
 	await expect(pi).toContainText(/226,0\smin/);
 	await expect(pi).toContainText(/0,29\sK/);
@@ -36,6 +36,6 @@ test('explains why PI cannot be tuned without radiator lag', async ({ page }) =>
 	await page.getByLabel('Setrvačnost radiátoru').fill('0');
 
 	await expect(page.getByText('PI regulátory se nesimulují')).toBeVisible();
-	await expect(metricsRow(page, 'PI s anti-windupem')).toHaveCount(0);
+	await expect(metricsRow(page, 'Chytrá hlavice')).toHaveCount(0);
 	await expect(metricsRow(page, 'Termostatická hlavice')).toBeVisible();
 });

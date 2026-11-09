@@ -18,7 +18,7 @@ export const CONTROLLERS: Record<ControllerKind, ControllerPresentation> = {
 		swatch: 'bg-series-2'
 	},
 	pi: {
-		label: 'PI s anti-windupem',
+		label: 'Chytrá hlavice (PI)',
 		stroke: 'stroke-series-3',
 		swatch: 'bg-series-3'
 	},
