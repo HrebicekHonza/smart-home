@@ -1,6 +1,6 @@
 # 0002 Delivery as build artifacts and releases
 
-- **Status:** accepted
+- **Status:** accepted, amended by [0005](0005-public-simulator-on-pages.md) (public simulator only)
 - **Date:** 2026-11-08
 
 ## Context

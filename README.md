@@ -48,4 +48,4 @@ docs/           Architecture and decision records
 - **CI** ([ci.yml](.github/workflows/ci.yml)) runs on pull requests: install from lockfile, format check, lint, type check, unit tests, static build, Playwright.
 - **Delivery** ([delivery.yml](.github/workflows/delivery.yml)) runs CI on every push to `master` and uploads the static build as a workflow artifact. A `v*` tag additionally publishes a GitHub Release with the zipped build.
 
-Nothing is deployed to a public host.
+- **Pages** ([pages.yml](.github/workflows/pages.yml)) publishes only the Simulator (build with `VITE_EDITION=simulator`) to GitHub Pages on every push to `master`, see [ADR 0005](docs/decisions/0005-public-simulator-on-pages.md). The rest of the app is not deployed to a public host.
