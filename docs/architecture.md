@@ -54,6 +54,7 @@ Room pages are prerendered from the demo room ids exposed by the composition roo
 
 - `@sveltejs/adapter-static` with every page prerendered and `trailingSlash: 'always'`, so each page is `…/index.html` and subpages open directly from any static server.
 - `paths.relative` plus `BASE_PATH` support hosting under a sub-directory. Internal links and `goto()` use `resolve()` from `$app/paths`.
+- `VITE_EDITION=simulator` builds the public simulator-only edition published to GitHub Pages ([ADR 0005](decisions/0005-public-simulator-on-pages.md)).
 - Fonts (Manrope, Geist Mono, OFL licences alongside the files) and assets are bundled locally; there is no runtime CDN dependency.
 
 ## Design system

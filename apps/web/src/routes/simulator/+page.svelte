@@ -2,6 +2,8 @@
 	import { CONTROLLERS } from '#lib/features/simulator/controllers.ts';
 	import MetricsTable from '#lib/features/simulator/MetricsTable.svelte';
 	import ParameterPanel from '#lib/features/simulator/ParameterPanel.svelte';
+	import SimulatorAbout from '#lib/features/simulator/SimulatorAbout.svelte';
+	import { simulatorOnly } from '#lib/app/edition.ts';
 	import type { ChartSeries } from '#lib/features/simulator/chart-series.ts';
 	import SimulationChart from '#lib/features/simulator/SimulationChart.svelte';
 	import { SimulatorState } from '#lib/features/simulator/simulator-state.svelte.ts';
@@ -76,6 +78,8 @@
 		VÝSTUP SIMULACE
 	</span>
 </header>
+
+<SimulatorAbout open={simulatorOnly} />
 
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
 	<ParameterPanel {simulator} />
